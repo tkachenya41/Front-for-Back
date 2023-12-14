@@ -1,0 +1,19 @@
+.container {
+  padding: 1rem 0;
+  label {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: block;
+  }
+
+  input {
+    appearance: none;
+    display: block;
+    line-height: 1rem;
+    padding: 1rem 1.2rem;
+    border-radius: 0.1rem;
+    margin: 0;
+    border: 1px solid var(--primary-active-color);
+    width: 100%;
+  }
+}
