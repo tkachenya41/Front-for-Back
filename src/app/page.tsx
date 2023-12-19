@@ -1,5 +1,5 @@
-import styles from "./page.module.scss";
+import Styles from "./page.module.scss";
 
 export default function Home() {
-  return <main className={styles.main}>Hello my Node js Server</main>;
+  return <main className={Styles.main}>Hello my Node js Server</main>;
 }

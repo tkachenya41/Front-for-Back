@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Button } from "../Button/Button";
+
 import Styles from "./Header.module.scss";
+import { Button } from "@/components/Button/Button";
 
 export function Header() {
   return (

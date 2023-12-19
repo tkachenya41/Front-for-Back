@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes } from "react";
 
 export const ButtonAppearance = {
-  Primary: "primary",
-  Secondary: "secondary",
+  Primary: "btn-primary",
+  Secondary: "btn-secondary",
 } as const;
 
 export type ButtonAppearances =
