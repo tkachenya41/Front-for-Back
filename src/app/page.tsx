@@ -7,12 +7,14 @@ import { UserAPI } from "@/api/User";
 import { Users } from "@/features/Users/Users";
 
 export default function Home() {
-  const [users, setUsers] = useState<UserAPI[] | null>(null);
+  const [users, setUsers] = useState<UserAPI[]>([]);
   useEffect(() => {
     (async function () {
       const data = await fetchUsers();
       setUsers(data);
     })();
   }, []);
-  return <main className={styles.main}>{<Users users={users} />}</main>;
+  return (
+    <main className={styles.main}>{users && <Users users={users} />}</main>
+  );
 }

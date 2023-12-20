@@ -1,10 +1,10 @@
 import { UserAPI } from "@/api/User";
 import Style from "../Users.module.scss";
 
-export function User({ user }: { user: UserAPI | null }) {
+export function User({ user }: { user: UserAPI }) {
   return (
     <>
-      {user && (
+      {
         <div className={Style.user} key={user.id}>
           <p>
             <b>Name:</b> {user.name}
@@ -19,7 +19,7 @@ export function User({ user }: { user: UserAPI | null }) {
             <b>Role:</b> {user.role}
           </p>
         </div>
-      )}
+      }
     </>
   );
 }

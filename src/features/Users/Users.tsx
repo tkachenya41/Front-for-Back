@@ -1,10 +1,10 @@
 import { UserAPI } from "@/api/User";
 import Style from "./Users.module.scss";
 
-export function Users({ users }: { users: UserAPI[] | null }) {
+export function Users({ users }: { users: UserAPI[] }) {
   return (
     <>
-      {users && (
+      {
         <div className={Style.container}>
           {users.map((user) => (
             <div className={Style.user} key={user.id}>
@@ -23,7 +23,7 @@ export function Users({ users }: { users: UserAPI[] | null }) {
             </div>
           ))}
         </div>
-      )}
+      }
     </>
   );
 }
