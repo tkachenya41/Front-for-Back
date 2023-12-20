@@ -1,5 +1,6 @@
 .container {
   padding: 1rem 0;
+
   label {
     color: var(--primary-color);
     font-weight: 600;
@@ -15,5 +16,18 @@
     margin: 0;
     border: 1px solid var(--primary-active-color);
     width: 100%;
+
+    &:disabled {
+      background-color: var(--secondary-dark-color);
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      background-color: var(--primary-focus-color);
+    }
+  }
+
+  &-error {
+    color: var(--secondary-color);
   }
 }
