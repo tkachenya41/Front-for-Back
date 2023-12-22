@@ -29,8 +29,7 @@ export const Button = ({
       disabled={isLoading}
       onClick={handleClick}
     >
-      {isLoading && <Loader />}
-      {children}
+      {isLoading ? <Loader /> : children}
     </button>
   );
 };
