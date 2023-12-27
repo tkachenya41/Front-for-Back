@@ -1,14 +1,13 @@
-import axios, { AxiosError } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import { API_URL } from "./constants";
 import { RegisterAPI } from "./User";
 
-export async function fetchRegister(): Promise<RegisterAPI> {
-  try {
-    const url = `${API_URL}/register`;
-    const { data } = await axios<RegisterAPI>(url);
-    return data;
-  } catch (err) {
-    throw err instanceof AxiosError ? err.response?.data : err;
-  }
+export async function fetchRegister(user: RegisterAPI): Promise<string> {
+  const url = `${API_URL}/auth/register`;
+  const { data } = await axios.post<string, AxiosResponse<string>, RegisterAPI>(
+    url,
+    user
+  );
+  return data;
 }
