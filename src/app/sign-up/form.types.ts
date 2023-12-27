@@ -8,7 +8,7 @@ export interface FormField extends InputHTMLAttributes<HTMLInputElement> {
 
 export interface FormState {
   email: string;
-  username: string;
+  name: string;
   password: string;
   confirmPassword: string;
 }

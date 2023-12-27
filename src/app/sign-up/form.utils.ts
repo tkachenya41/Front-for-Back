@@ -5,13 +5,13 @@ export function getDefaultFormValues(): FormState {
     email: "",
     password: "",
     confirmPassword: "",
-    username: "",
+    name: "",
   };
 }
 
 const MIN_NAME_LENGTH = 3;
 
-function isValidName(name: FormState["username"]): boolean {
+function isValidName(name: FormState["name"]): boolean {
   return name.trim().length >= MIN_NAME_LENGTH;
 }
 
@@ -28,8 +28,8 @@ export function isValidPassword(password: FormState["password"]): boolean {
 export function getFormErrors(formValues: FormState): FormErrors {
   const errors: FormErrors = {};
 
-  if (!isValidName(formValues.username)) {
-    errors.username = "Name should have more than 3 symbols";
+  if (!isValidName(formValues.name)) {
+    errors.name = "Name should have more than 3 symbols";
   }
 
   if (!isValidEmail(formValues.email)) {
@@ -37,7 +37,8 @@ export function getFormErrors(formValues: FormState): FormErrors {
   }
 
   if (!isValidPassword(formValues.password)) {
-    errors.password = "Password should be longer than 4 symbols";
+    errors.password =
+      "Password should be longer than 4 symbols and be more complex";
   }
 
   if (formValues.password !== formValues.confirmPassword) {
