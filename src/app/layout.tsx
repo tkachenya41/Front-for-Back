@@ -19,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={AnekOdia.className}>{children}</body>
+      <body className={AnekOdia.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
