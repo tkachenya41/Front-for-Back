@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  .user {
+    width: 15rem;
+    height: 12rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    p {
+      max-width: 13rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
