@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anek_Odia } from "next/font/google";
 import "@/assets/styles/globals.scss";
+import { Header } from "@/features/Header/Header";
 
 const AnekOdia = Anek_Odia({
   subsets: ["latin"],

@@ -8,7 +8,7 @@ export const schemaUserAPI = z.object({
   role: z.string(),
 });
 
-export const schemaRegisterAPI = schemaUserAPI.omit({ id: true });
+export const schemaRegisterAPI = schemaUserAPI.omit({ id: true, role: true });
 
 export const schemaSignAPI = schemaRegisterAPI.omit({ role: true, name: true });
 

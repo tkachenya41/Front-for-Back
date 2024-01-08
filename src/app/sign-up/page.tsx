@@ -7,6 +7,7 @@ import { formSchema } from "./form.schema";
 import { InputField } from "@/components/features/InputField/InputField";
 import { fetchRegister } from "@/api/fetchRegister";
 import { AxiosError } from "axios";
+import { Button } from "@/components/Button/Button";
 
 export default function SignUpPage() {
   const [formState, setFormState] = useState<FormState>(getDefaultFormValues);

@@ -4,6 +4,7 @@ import { ChangeEvent, SyntheticEvent, useState } from "react";
 import { InputField } from "@/components/features/InputField/InputField";
 import { isValidEmail, isValidPassword } from "../sign-up/form.utils";
 import { FormState } from "../sign-up/form.types";
+import { Button } from "@/components/Button/Button";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
