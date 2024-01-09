@@ -12,8 +12,7 @@ export const Button = ({
 }: PropsWithChildren<ButtonProperties>) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = (event: SyntheticEvent) => {
-    event.preventDefault();
+  const handleClick = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -26,7 +25,6 @@ export const Button = ({
         [Style.btn]: true,
         [Style[appearance]]: true,
       })}
-      disabled={isLoading}
       onClick={handleClick}
     >
       {isLoading ? <Loader /> : children}
