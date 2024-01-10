@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anek_Odia } from "next/font/google";
 import "@/assets/styles/globals.scss";
 import { Header } from "@/features/Header/Header";
+import { AuthProvider } from "@/contexts/AuthContextProvider";
 
 const AnekOdia = Anek_Odia({
   subsets: ["latin"],
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={AnekOdia.className}>
-        <Header />
-        {children}
+        <AuthProvider>
+          <Header />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

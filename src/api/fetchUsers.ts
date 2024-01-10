@@ -1,10 +1,12 @@
-import axios, { AxiosError } from "axios";
+import { AxiosError, AxiosInstance } from "axios";
 import { API_URL, ResponseAPI } from "./constants";
 
-export async function fetchUsers(): Promise<ResponseAPI> {
+export async function fetchUsers(
+  axiosInstance: AxiosInstance
+): Promise<ResponseAPI> {
   try {
     const url = `${API_URL}/users`;
-    const { data } = await axios<ResponseAPI>(url);
+    const { data } = await axiosInstance.get<ResponseAPI>(url);
     return data;
   } catch (err) {
     if (err instanceof AxiosError && err.response) {

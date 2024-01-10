@@ -5,12 +5,17 @@ import { InputField } from "@/components/features/InputField/InputField";
 import { isValidEmail, isValidPassword } from "../sign-up/form.utils";
 import { FormState } from "../sign-up/form.types";
 import { Button } from "@/components/Button/Button";
+import { fetchSign } from "@/api/fetchSign";
+import { AxiosError } from "axios";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [response, setResponse] = useState("");
+  const { handleSignIn } = useAuth();
 
   const handleInputChange = (
     inputType: Partial<keyof FormState>,
@@ -25,7 +30,7 @@ export default function SignInPage() {
     }
   };
 
-  const handleSubmit = (event: SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
     if (!isValidEmail(email)) {
@@ -37,10 +42,27 @@ export default function SignInPage() {
       setPasswordError("Invalid password format");
       return;
     }
+    try {
+      const user = {
+        email,
+        password,
+      };
+
+      const token = await fetchSign(user);
+      handleSignIn(token);
+      setResponse("You are logged in");
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        setResponse(err.response?.data);
+      } else {
+        console.log(err);
+      }
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className={Style.container}>
+      {response && <div>{response}</div>}
       <InputField
         label="Email"
         placeholder="Enter email"

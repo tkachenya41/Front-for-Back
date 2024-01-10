@@ -8,15 +8,20 @@ import Loader from "../Loader/Loader";
 export const Button = ({
   appearance = ButtonAppearance.Primary,
   children,
+  onClick: externalOnClick,
   ...otherProperties
 }: PropsWithChildren<ButtonProperties>) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
+
+    if (externalOnClick) {
+      externalOnClick(e);
+    }
   };
   return (
     <button
