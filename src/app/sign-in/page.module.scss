@@ -1,6 +1,10 @@
 .container {
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin: 5rem auto;
-  padding: 2.5rem;
-  max-width: 37rem;
-  border: 1px solid var(--primary-active-color);
+  padding: 1.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
 }

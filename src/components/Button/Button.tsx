@@ -1,5 +1,5 @@
 "use client";
-import { PropsWithChildren, SyntheticEvent, useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import { ButtonAppearance, ButtonProperties } from "./Button.types";
 import classNames from "classnames";
 import Style from "./Button.module.scss";
@@ -9,6 +9,7 @@ export const Button = ({
   appearance = ButtonAppearance.Primary,
   children,
   onClick: externalOnClick,
+  className: externalClassName,
   ...otherProperties
 }: PropsWithChildren<ButtonProperties>) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,18 +19,16 @@ export const Button = ({
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-
-    if (externalOnClick) {
-      externalOnClick(e);
-    }
   };
+  const buttonClasses = {
+    [Style.btn]: true,
+    [Style[appearance]]: true,
+  };
+  const combinedClasses = classNames(buttonClasses, externalClassName);
   return (
     <button
       {...otherProperties}
-      className={classNames({
-        [Style.btn]: true,
-        [Style[appearance]]: true,
-      })}
+      className={combinedClasses}
       onClick={handleClick}
     >
       {isLoading ? <Loader /> : children}
