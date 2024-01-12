@@ -8,7 +8,7 @@ export const InputField = ({
   ...inputProperties
 }: {
   error?: string;
-  label: string;
+  label?: string;
   shouldFitContainer?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>) => {
   return (

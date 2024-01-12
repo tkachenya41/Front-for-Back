@@ -1,8 +1,13 @@
 .main {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
   padding: 6rem;
   min-height: 100dvh;
+  box-shadow:
+    inset -1px 0 0 0 var(--primary-box-shadow),
+    inset 1px 0 0 0 var(--primary-box-shadow);
 }
