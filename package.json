@@ -16,7 +16,9 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-toastify": "^9.1.3",
     "sass": "^1.69.5",
+    "use-async-effect": "^2.2.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {

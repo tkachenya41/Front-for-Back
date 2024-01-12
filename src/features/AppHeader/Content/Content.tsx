@@ -5,12 +5,14 @@ import { useRouter } from "next/navigation";
 import Styles from "./Content.module.scss";
 
 export const Content = () => {
-  const { isAuth, handleLogout } = useAuth();
+  const { isAuth, handleLogout, user } = useAuth();
   const router = useRouter();
+
   return (
     <div className={Styles.container}>
       {isAuth ? (
         <>
+          {user && <div>{user.name}</div>}
           <Button
             onClick={() => {
               handleLogout();

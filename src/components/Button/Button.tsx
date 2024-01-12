@@ -14,8 +14,13 @@ export const Button = ({
 }: PropsWithChildren<ButtonProperties>) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     setIsLoading(true);
+
+    if (externalOnClick) {
+      externalOnClick(e);
+    }
+
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);

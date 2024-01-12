@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Anek_Odia } from "next/font/google";
 import "@/assets/styles/globals.scss";
-import { Header } from "@/features/Header/Header";
 import { AuthProvider } from "@/contexts/AuthContextProvider";
+import { ToastContainer } from "react-toastify";
+import { AppHeader } from "@/features/AppHeader/AppHeader";
 
 const AnekOdia = Anek_Odia({
   subsets: ["latin"],
@@ -23,7 +24,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={AnekOdia.className}>
         <AuthProvider>
-          <Header />
+          <AppHeader />
+          <ToastContainer />
           {children}
         </AuthProvider>
       </body>

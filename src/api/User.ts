@@ -17,3 +17,10 @@ export type UserAPI = z.infer<typeof schemaUserAPI>;
 export type RegisterAPI = z.infer<typeof schemaRegisterAPI>;
 
 export type SignAPI = z.infer<typeof schemaSignAPI>;
+
+export const schemaSignResponse = z.object({
+  token: z.string(),
+  user: schemaUserAPI,
+});
+
+export type SignResponse = z.infer<typeof schemaSignResponse>;

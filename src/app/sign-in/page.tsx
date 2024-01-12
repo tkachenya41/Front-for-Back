@@ -8,13 +8,14 @@ import { Button } from "@/components/Button/Button";
 import { fetchSign } from "@/api/fetchSign";
 import { AxiosError } from "axios";
 import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [response, setResponse] = useState("");
   const { handleSignIn } = useAuth();
 
   const handleInputChange = (
@@ -43,26 +44,25 @@ export default function SignInPage() {
       return;
     }
     try {
-      const user = {
+      const loggedUser = {
         email,
         password,
       };
 
-      const token = await fetchSign(user);
-      handleSignIn(token);
-      setResponse("You are logged in");
+      const { token, user } = await fetchSign(loggedUser);
+      handleSignIn(token, user);
+      toast.success("You are logged in");
     } catch (err) {
       if (err instanceof AxiosError) {
-        setResponse(err.response?.data);
+        toast.error(err.response?.data);
       } else {
-        console.log(err);
+        toast.error("An unexpected error occurred");
       }
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className={Style.container}>
-      {response && <div>{response}</div>}
       <InputField
         label="Email"
         placeholder="Enter email"

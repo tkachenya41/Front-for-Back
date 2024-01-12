@@ -1,13 +1,11 @@
 "use client";
-"use client";
-import Link from "next/link";
 
 import { Content } from "./Content/Content";
-import Styles from "./Header.module.scss";
+import Styles from "./AppHeader.module.scss";
 import { Logo } from "./Logo/Logo";
 import { SearchPanel } from "./SearchPanel/SearchPanel";
 
-export function Header() {
+export function AppHeader() {
   return (
     <header className={Styles.header}>
       <Logo />
