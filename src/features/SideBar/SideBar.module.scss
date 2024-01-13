@@ -5,9 +5,13 @@
   padding-top: 6rem;
   gap: 1rem;
   position: fixed;
-  inset: 0 0 auto;
   height: 100vh;
   width: 25%;
+
+  .btnWrapper {
+    display: flex;
+    column-gap: 8px;
+  }
 
   .btn {
     display: flex;
