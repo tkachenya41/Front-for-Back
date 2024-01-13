@@ -4,6 +4,8 @@ import "@/assets/styles/globals.scss";
 import { AuthProvider } from "@/contexts/AuthContextProvider";
 import { ToastContainer } from "react-toastify";
 import { AppHeader } from "@/features/AppHeader/AppHeader";
+import { SideBar } from "@/features/SideBar/SideBar";
+import { Categories } from "@/features/Categories/Categories";
 
 const AnekOdia = Anek_Odia({
   subsets: ["latin"],
@@ -25,6 +27,8 @@ export default function RootLayout({
       <body className={AnekOdia.className}>
         <AuthProvider>
           <AppHeader />
+          <SideBar />
+          <Categories />
           <ToastContainer />
           {children}
         </AuthProvider>

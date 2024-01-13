@@ -4,12 +4,12 @@ import Style from "./page.module.scss";
 import { FormState } from "./form.types";
 import { getDefaultFormValues, getFormErrors } from "./form.utils";
 import { formSchema } from "./form.schema";
-import { InputField } from "@/components/features/InputField/InputField";
 import { fetchRegister } from "@/api/fetchRegister";
 import { AxiosError } from "axios";
 import { Button } from "@/components/Button/Button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { InputField } from "@/components/InputField/InputField";
 
 export default function SignUpPage() {
   const [formState, setFormState] = useState<FormState>(getDefaultFormValues);

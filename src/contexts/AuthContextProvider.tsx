@@ -4,7 +4,9 @@ import { AuthContext } from "./AuthContext";
 import axios from "axios";
 import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { UserAPI } from "@/api/User";
-import { COOKIES_TOKEN } from "@/api/constants";
+import { COOKIES_TOKEN, USER_INFO } from "@/api/constants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuth, setIsAuth] = useState(false);
@@ -12,22 +14,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const token = getCookie(COOKIES_TOKEN);
+    const storedUser = getCookie(USER_INFO);
+
     if (token) {
       setIsAuth(true);
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      if (!user && storedUser) {
+        const decodedUser = JSON.parse(decodeURIComponent(storedUser));
+        setIsUser(decodedUser);
+      }
+
+      setIsAuth(true);
     }
-  }, []);
+  }, [user]);
 
   const handleSignIn = (token: string, user: UserAPI) => {
     setCookie(COOKIES_TOKEN, `${token}`);
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setIsUser(user);
+    setCookie(USER_INFO, JSON.stringify(user));
     setIsAuth(true);
   };
 
   const handleLogout = () => {
     deleteCookie(COOKIES_TOKEN);
+    deleteCookie(USER_INFO);
     delete axios.defaults.headers.common["Authorization"];
+    toast.success("You are logged out");
     setIsUser(null);
     setIsAuth(false);
   };

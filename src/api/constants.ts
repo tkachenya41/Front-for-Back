@@ -8,3 +8,4 @@ export const schemaResponseAPI = z.array(schemaUserAPI);
 export type ResponseAPI = z.infer<typeof schemaResponseAPI>;
 
 export const COOKIES_TOKEN = "token";
+export const USER_INFO = "userInfo";

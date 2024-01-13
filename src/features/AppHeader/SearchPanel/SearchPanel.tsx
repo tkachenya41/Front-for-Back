@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button/Button";
 import Styles from "./SearchPanel.module.scss";
 import Image from "next/image";
-import { InputField } from "@/components/features/InputField/InputField";
+import { InputField } from "@/components/InputField/InputField";
 
-export const SearchPanel = () => {
+export function SearchPanel() {
   return (
     <form
       className={Styles.container}
@@ -17,4 +17,4 @@ export const SearchPanel = () => {
       </Button>
     </form>
   );
-};
+}

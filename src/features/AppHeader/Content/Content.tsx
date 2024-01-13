@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Styles from "./Content.module.scss";
 
-export const Content = () => {
+export function Content() {
   const { isAuth, handleLogout, user } = useAuth();
   const router = useRouter();
 
@@ -34,4 +34,4 @@ export const Content = () => {
       )}
     </div>
   );
-};
+}

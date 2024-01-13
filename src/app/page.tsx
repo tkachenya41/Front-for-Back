@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-import styles from "./page.module.scss";
 
+import Styles from "./page.module.scss";
+import { useState } from "react";
 import { fetchUsers } from "@/api/fetchUsers";
 import { UserAPI } from "@/api/User";
 import { Users } from "@/features/Users/Users";
@@ -20,7 +20,7 @@ export default function Home() {
     [isAuth]
   );
   return (
-    <main className={styles.main}>
+    <main className={Styles.main}>
       {isAuth && users && <Users users={users} />}
     </main>
   );

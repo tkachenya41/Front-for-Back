@@ -1,7 +1,6 @@
 "use client";
 import Style from "./page.module.scss";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { InputField } from "@/components/features/InputField/InputField";
 import { isValidEmail, isValidPassword } from "../sign-up/form.utils";
 import { FormState } from "../sign-up/form.types";
 import { Button } from "@/components/Button/Button";
@@ -10,6 +9,7 @@ import { AxiosError } from "axios";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { InputField } from "@/components/InputField/InputField";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");

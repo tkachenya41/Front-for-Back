@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import Style from "./InputField.module.scss";
 
-export const InputField = ({
+export function InputField({
   label,
   id,
   error,
@@ -10,7 +10,7 @@ export const InputField = ({
   error?: string;
   label?: string;
   shouldFitContainer?: boolean;
-} & InputHTMLAttributes<HTMLInputElement>) => {
+} & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className={Style.container}>
       <label htmlFor={id}>{label}</label>
@@ -18,4 +18,4 @@ export const InputField = ({
       {error && <div className={Style["container-error"]}>{error}</div>}
     </div>
   );
-};
+}

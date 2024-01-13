@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactElement } from "react";
 
 export const ButtonAppearance = {
   Primary: "btn-primary",
@@ -10,4 +10,5 @@ export type ButtonAppearances =
 
 export type ButtonProperties = {
   appearance?: ButtonAppearances;
+  iconLeft: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
