@@ -9,7 +9,6 @@ import Image from "next/image";
 export function Button({
   appearance = ButtonAppearance.Primary,
   children,
-  iconLeft,
   onClick: externalOnClick,
   className: externalClassName,
   ...otherProperties
@@ -38,15 +37,6 @@ export function Button({
       className={combinedClasses}
       onClick={handleClick}
     >
-      {iconLeft && (
-        <Image
-          className={Style.icon}
-          alt="icon"
-          width={25}
-          height={25}
-          src={iconLeft}
-        />
-      )}
       {isLoading ? <Loader /> : children}
     </button>
   );

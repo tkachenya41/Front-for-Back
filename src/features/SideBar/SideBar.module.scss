@@ -1,36 +1,38 @@
 .container {
+  position: fixed;
+  width: 25%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 6rem;
   gap: 1rem;
-  position: fixed;
-  height: 100vh;
-  width: 25%;
+  padding-top: 6rem;
 
-  .btnWrapper {
-    display: flex;
-    column-gap: 8px;
-  }
-
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    gap: 1rem;
-    width: 10rem;
+  .link {
     font-size: 1.3rem;
+    width: 10rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
 
-    &:hover {
-      color: var(--primary-active-color);
-      img {
-        fill: var(--primary-active-color);
-        // outline: 2px solid red;
-        background-color: var(--primary-active-color);
-        stroke: red; /* устанавливает цвет контура */
-        stroke-width: 2px;
+    .linkWrapper {
+      display: flex;
+      column-gap: 8px;
+
+      &:hover {
+        color: var(--primary-active-color);
+
+        .icon path {
+          stroke: var(--primary-active-color);
+        }
       }
+    }
+
+    .icon {
+      width: 2.2rem;
+      height: 2.2rem;
     }
   }
 }

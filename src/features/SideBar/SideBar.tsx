@@ -1,34 +1,35 @@
-import Link from 'next/link';
-import Styles from './SideBar.module.scss';
-import { Button } from '@/components/Button/Button';
-import { ButtonAppearance } from '@/components/Button/Button.types';
-import Image from 'next/image';
+import Link from "next/link";
+import Styles from "./SideBar.module.scss";
+import HomeIcon from "@/components/Icons/Home";
+import ProfileIcon from "@/components/Icons/Profile";
+import MoreIcon from "@/components/Icons/More";
+import PostIcon from "@/components/Icons/Post";
 
 export function SideBar() {
   return (
     <aside className={Styles.container}>
-      <Link className={Styles.btn} href={'/'}>
-        <div className={Styles.btnWrapper}>
-          {<Image src={'./home.svg'} alt="profile" width={25} height={25} />}
+      <Link className={Styles.link} href={"/"}>
+        <div className={Styles.linkWrapper}>
+          <HomeIcon className={Styles.icon} />
           <p>Home</p>
         </div>
       </Link>
 
-      <Link className={Styles.btn} href={'/profile'}>
-        <div className={Styles.btnWrapper}>
-          {<Image src={'./profile.svg'} alt="profile" width={25} height={25} />}
+      <Link className={Styles.link} href={"/profile"}>
+        <div className={Styles.linkWrapper}>
+          <ProfileIcon className={Styles.icon} />
           <span>Profile</span>
         </div>
       </Link>
-      <Link className={Styles.btn} href={'/post'}>
-        <div className={Styles.btnWrapper}>
-          {<Image src={'./post.svg'} alt="post" width={25} height={25} />}
+      <Link className={Styles.link} href={"/post"}>
+        <div className={Styles.linkWrapper}>
+          <PostIcon className={Styles.icon} />
           <span>Post</span>
         </div>
       </Link>
-      <Link className={Styles.btn} href={'/more'}>
-        <div className={Styles.btnWrapper}>
-          {<Image src={'./more.svg'} alt="more" width={25} height={25} />}
+      <Link className={Styles.link} href={"/more"}>
+        <div className={Styles.linkWrapper}>
+          <MoreIcon className={Styles.icon} />
           <span>More</span>
         </div>
       </Link>

@@ -1,5 +1,3 @@
-import { Button } from "@/components/Button/Button";
-import { ButtonAppearance } from "@/components/Button/Button.types";
 import Image from "next/image";
 import Styles from "./Logo.module.scss";
 import Link from "next/link";

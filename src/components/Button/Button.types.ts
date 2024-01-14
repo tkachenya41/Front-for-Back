@@ -10,5 +10,4 @@ export type ButtonAppearances =
 
 export type ButtonProperties = {
   appearance?: ButtonAppearances;
-  iconLeft: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;

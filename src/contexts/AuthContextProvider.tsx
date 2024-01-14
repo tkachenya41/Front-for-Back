@@ -7,10 +7,12 @@ import { UserAPI } from "@/api/User";
 import { COOKIES_TOKEN, USER_INFO } from "@/api/constants";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setIsUser] = useState<UserAPI | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const token = getCookie(COOKIES_TOKEN);
@@ -35,6 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsUser(user);
     setCookie(USER_INFO, JSON.stringify(user));
     setIsAuth(true);
+    router.push("/");
   };
 
   const handleLogout = () => {
