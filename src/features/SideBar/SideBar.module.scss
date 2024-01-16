@@ -1,0 +1,38 @@
+.container {
+  position: fixed;
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 6rem;
+
+  .link {
+    font-size: 1.3rem;
+    width: 10rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+
+    .linkWrapper {
+      display: flex;
+      column-gap: 8px;
+
+      &:hover {
+        color: var(--primary-active-color);
+
+        .icon path {
+          stroke: var(--primary-active-color);
+        }
+      }
+    }
+
+    .icon {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  width: 25%;
+  height: 4.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+
+  .input {
+    font-size: inherit;
+    width: 10rem;
+    height: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+  }
+
+  .search {
+    width: 2rem;
+    border-radius: 50%;
+  }
+}

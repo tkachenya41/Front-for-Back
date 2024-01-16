@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Anek_Odia } from "next/font/google";
 import "@/assets/styles/globals.scss";
-import { Header } from "@/features/Header/Header";
+import { AuthProvider } from "@/contexts/AuthContextProvider";
+import { ToastContainer } from "react-toastify";
+import { AppHeader } from "@/features/AppHeader/AppHeader";
+import { SideBar } from "@/features/SideBar/SideBar";
+import { Categories } from "@/features/Categories/Categories";
 
 const AnekOdia = Anek_Odia({
   subsets: ["latin"],
@@ -21,8 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={AnekOdia.className}>
-        <Header />
-        {children}
+        <AuthProvider>
+          <AppHeader />
+          <SideBar />
+          <Categories />
+          <ToastContainer />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

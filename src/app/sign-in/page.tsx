@@ -1,16 +1,22 @@
 "use client";
 import Style from "./page.module.scss";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { InputField } from "@/components/features/InputField/InputField";
 import { isValidEmail, isValidPassword } from "../sign-up/form.utils";
 import { FormState } from "../sign-up/form.types";
 import { Button } from "@/components/Button/Button";
+import { fetchSign } from "@/api/fetchSign";
+import { AxiosError } from "axios";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { InputField } from "@/components/InputField/InputField";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const { handleSignIn } = useAuth();
 
   const handleInputChange = (
     inputType: Partial<keyof FormState>,
@@ -25,7 +31,7 @@ export default function SignInPage() {
     }
   };
 
-  const handleSubmit = (event: SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
     if (!isValidEmail(email)) {
@@ -36,6 +42,22 @@ export default function SignInPage() {
     if (!isValidPassword(password)) {
       setPasswordError("Invalid password format");
       return;
+    }
+    try {
+      const loggedUser = {
+        email,
+        password,
+      };
+
+      const { token, user } = await fetchSign(loggedUser);
+      handleSignIn(token, user);
+      toast.success("You are logged in");
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        toast.error(err.response?.data);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 

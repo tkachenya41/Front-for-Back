@@ -1,14 +1,14 @@
-import axios, { AxiosError } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import { API_URL } from "./constants";
-import { SignAPI } from "./User";
+import { SignAPI, SignResponse } from "./User";
 
-export async function fetchSign(): Promise<SignAPI> {
-  try {
-    const url = `${API_URL}/sign`;
-    const { data } = await axios<SignAPI>(url);
-    return data;
-  } catch (err) {
-    throw err instanceof AxiosError ? err.response?.data : err;
-  }
+export async function fetchSign(user: SignAPI): Promise<SignResponse> {
+  const url = `${API_URL}/auth/sign`;
+  const { data } = await axios.post<
+    SignResponse,
+    AxiosResponse<SignResponse>,
+    SignAPI
+  >(url, user);
+  return data;
 }
