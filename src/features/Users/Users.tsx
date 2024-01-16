@@ -13,12 +13,16 @@ export function Users({ users }: { users: UserAPI[] }) {
             <p>
               <b>Email:</b> {user.email}
             </p>
-            <p>
-              <b>Password:</b> {user.password}
-            </p>
-            <p>
-              <b>Role:</b> {user.role}
-            </p>
+            {user.password && (
+              <p>
+                <b>Password:</b> {user.password}
+              </p>
+            )}
+            {user.role && (
+              <p>
+                <b>Role:</b> {user.role}
+              </p>
+            )}
           </div>
         ))}
       </div>
